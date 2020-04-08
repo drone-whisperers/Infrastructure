@@ -1,0 +1,41 @@
+version: '3'
+services:
+  module1:
+    build:
+      dockerfile: Dockerfile
+      context: ./Module1-Stub
+    ports:
+      - '11111:11111'
+  module2:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./Module-2
+  module3:
+    build:
+      dockerfile: Dockerfile
+      context: ./Rule-BasedGo
+    environment:
+      - LISTEN_PORT=55555
+  module3perfect:
+    build:
+      dockerfile: Dockerfile
+      context: ./Rule-BasedGo
+    environment:
+      - LISTEN_PORT=44444
+  module3learning:
+    build:
+      dockerfile: Dockerfile
+      context: ./Module3_LearningModel
+    environment:
+      - LISTEN_PORT=42070
+  module3learningperfect:
+    build:
+      dockerfile: Dockerfile
+      context: ./Module3_LearningModel
+    environment:
+      - LISTEN_PORT=42069
+  numberclean:
+    build:
+      dockerfile: Dockerfile
+      context: ./NumberClean
